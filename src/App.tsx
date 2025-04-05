@@ -1,9 +1,19 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import AppLayout from "./components/layout/AppLayout";
 import Index from "./pages/Index";
+import AgentsPage from "./pages/AgentsPage";
+import AgentNewPage from "./pages/AgentNewPage";
+import ProtocolsPage from "./pages/ProtocolsPage";
+import PlaygroundPage from "./pages/PlaygroundPage";
+import VisualizerPage from "./pages/VisualizerPage";
+import ConversationsPage from "./pages/ConversationsPage";
+import ModelsPage from "./pages/ModelsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -15,8 +25,16 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route element={<AppLayout />}>
+            <Route path="/" element={<Index />} />
+            <Route path="/agents" element={<AgentsPage />} />
+            <Route path="/agents/new" element={<AgentNewPage />} />
+            <Route path="/protocols" element={<ProtocolsPage />} />
+            <Route path="/playground" element={<PlaygroundPage />} />
+            <Route path="/visualizer" element={<VisualizerPage />} />
+            <Route path="/conversations" element={<ConversationsPage />} />
+            <Route path="/models" element={<ModelsPage />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
