@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Flask } from 'lucide-react';
+import { Beaker } from 'lucide-react';
 import ModelPlayground from '@/components/playground/ModelPlayground';
 
 const PlaygroundPage = () => {

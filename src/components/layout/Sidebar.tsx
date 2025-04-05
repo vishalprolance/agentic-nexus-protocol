@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import { 
   LayoutDashboard, 
   CircuitBoard, 
-  Flask, 
+  Beaker, 
   Network, 
   Settings, 
   FolderTree,
@@ -38,7 +38,7 @@ const navItems: NavItem[] = [
   {
     title: 'Test Playground',
     href: '/playground',
-    icon: <Flask className="w-5 h-5" />,
+    icon: <Beaker className="w-5 h-5" />,
   },
   {
     title: 'Visualizer',

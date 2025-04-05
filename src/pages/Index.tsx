@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Activity, Bot, CircuitBoard, MessageSquare, Users } from 'lucide-react';
 import StatsCard from '@/components/dashboard/StatsCard';
@@ -37,12 +36,12 @@ const mockProtocols = [
 ];
 
 const mockActivities = [
-  { id: '1', type: 'agent', message: 'Research Assistant completed task #425', timestamp: '10 minutes ago' },
-  { id: '2', type: 'protocol', message: 'New protocol "Advanced Analysis" created', timestamp: '1 hour ago' },
-  { id: '3', type: 'conversation', message: 'User started new conversation with Data Analyst', timestamp: '2 hours ago' },
-  { id: '4', type: 'error', message: 'Protocol execution failed: missing context data', timestamp: '3 hours ago' },
-  { id: '5', type: 'info', message: 'System maintenance scheduled for tomorrow', timestamp: '5 hours ago' },
-  { id: '6', type: 'agent', message: 'Code Generator agent updated to v2.1', timestamp: '1 day ago' },
+  { id: '1', type: 'agent' as const, message: 'Research Assistant completed task #425', timestamp: '10 minutes ago' },
+  { id: '2', type: 'protocol' as const, message: 'New protocol "Advanced Analysis" created', timestamp: '1 hour ago' },
+  { id: '3', type: 'conversation' as const, message: 'User started new conversation with Data Analyst', timestamp: '2 hours ago' },
+  { id: '4', type: 'error' as const, message: 'Protocol execution failed: missing context data', timestamp: '3 hours ago' },
+  { id: '5', type: 'info' as const, message: 'System maintenance scheduled for tomorrow', timestamp: '5 hours ago' },
+  { id: '6', type: 'agent' as const, message: 'Code Generator agent updated to v2.1', timestamp: '1 day ago' },
 ];
 
 const Dashboard = () => {
