@@ -35,11 +35,15 @@ const ProtocolVisualizer = () => {
         const nodeEl = document.createElement('div');
         nodeEl.className = 'absolute agent-node flex flex-col items-center transition-all duration-300';
         
-        const bgColorClass = node.type === 'source' ? 'border-green-500/30 bg-green-500/10' :
-                             node.type === 'target' ? 'border-purple-500/30 bg-purple-500/10' :
-                             'border-primary/30 bg-primary/10';
-        
-        nodeEl.classList.add(bgColorClass);
+        // Fix: Add CSS classes individually instead of as a space-separated string
+        const bgClasses = node.type === 'source' 
+          ? ['border-green-500/30', 'bg-green-500/10'] 
+          : node.type === 'target' 
+            ? ['border-purple-500/30', 'bg-purple-500/10'] 
+            : ['border-primary/30', 'bg-primary/10'];
+            
+        // Add each class individually
+        bgClasses.forEach(cls => nodeEl.classList.add(cls));
         
         // Position nodes in a simple flow
         const xPos = 120 + (index * 200);
