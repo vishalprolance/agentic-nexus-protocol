@@ -4,6 +4,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Bot, CircuitBoard, Star, MessageSquare, Settings } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 type AgentCardProps = {
   id: string;
@@ -26,14 +27,23 @@ const AgentCard = ({
   rating,
   status
 }: AgentCardProps) => {
+  const navigate = useNavigate();
+  
   const statusColors = {
     online: 'bg-green-500',
     offline: 'bg-gray-400',
     busy: 'bg-amber-500',
   };
 
+  const handleCardClick = () => {
+    navigate(`/agents/${id}`);
+  };
+
   return (
-    <Card className="border border-border/40 bg-card/60 h-full flex flex-col">
+    <Card 
+      className="border border-border/40 bg-card/60 h-full flex flex-col cursor-pointer hover:border-primary/50 transition-all"
+      onClick={handleCardClick}
+    >
       <CardHeader className="pb-2">
         <div className="flex items-start justify-between">
           <div className="flex items-center">
@@ -81,11 +91,27 @@ const AgentCard = ({
         </div>
       </CardContent>
       <CardFooter className="grid grid-cols-2 gap-2">
-        <Button variant="outline" size="sm" className="w-full">
+        <Button 
+          variant="outline" 
+          size="sm" 
+          className="w-full"
+          onClick={(e) => {
+            e.stopPropagation(); // Prevent card click
+            navigate(`/agents/${id}/chat`);
+          }}
+        >
           <MessageSquare className="w-4 h-4 mr-2" />
           Chat
         </Button>
-        <Button variant="outline" size="sm" className="w-full">
+        <Button 
+          variant="outline" 
+          size="sm" 
+          className="w-full"
+          onClick={(e) => {
+            e.stopPropagation(); // Prevent card click
+            navigate(`/agents/${id}/configure`);
+          }}
+        >
           <Settings className="w-4 h-4 mr-2" />
           Configure
         </Button>

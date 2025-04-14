@@ -9,6 +9,7 @@ import AppLayout from "./components/layout/AppLayout";
 import Index from "./pages/Index";
 import AgentsPage from "./pages/AgentsPage";
 import AgentNewPage from "./pages/AgentNewPage";
+import AgentDetailPage from "./pages/AgentDetailPage";
 import ProtocolsPage from "./pages/ProtocolsPage";
 import PlaygroundPage from "./pages/PlaygroundPage";
 import VisualizerPage from "./pages/VisualizerPage";
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/agents" element={<AgentsPage />} />
             <Route path="/agents/new" element={<AgentNewPage />} />
+            <Route path="/agents/:id" element={<AgentDetailPage />} />
             <Route path="/protocols" element={<ProtocolsPage />} />
             <Route path="/playground" element={<PlaygroundPage />} />
             <Route path="/visualizer" element={<VisualizerPage />} />
